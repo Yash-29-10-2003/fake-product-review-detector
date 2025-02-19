@@ -86,7 +86,18 @@ To set up the project, follow these steps:
 
 1. Navigate to the project directory in your terminal.
 2. Run the Fast API backend.
-3. Run the Streamlit application using the appropriate command.
+   ```
+   uvicorn api:app --host 0.0.0.0 --port 8000 --reload
+
+   ```
+   After inputing this command, you can check weather the API is up and running perfectly by using the following request in a fresh terminal:
+   ```
+   curl -X 'POST' 'http://127.0.0.1:8000/predict/' \
+   -H 'Content-Type: application/json' \
+   -d '{"text": "Great product! Totally worth the price."}'
+
+   ```
+4. Run the Streamlit application using the appropriate command.
    ```
    streamlit run main.py    
    ```
