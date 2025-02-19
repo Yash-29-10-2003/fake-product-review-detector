@@ -12,13 +12,10 @@
     #V. Scalability: Could the solution handle real-world data? If yes how
 
 
-#Importing necessary classes
 import streamlit as st
-from reviewChecker import FakeReviewDetector 
+import requests
 
-detector = FakeReviewDetector()
-
-#Main UI using streamlit
+# Streamlit UI
 st.title("Fake Product Review Detector")
 st.write("This application detects whether a product review is genuine or fake.")
 
@@ -28,9 +25,14 @@ user_input = st.text_area("Paste the review to be checked:")
 # Button to check review
 if st.button("Check Review"):
     if user_input:
-        label, confidence = detector.predict(user_input)
-        st.write(f"Prediction: **{label}**")
-        #st.write(f"Confidence: **{confidence:.2f}**")       #could be used to also display the confidence
+        # Send request to FastAPI
+        response = requests.post("http://127.0.0.1:8000/predict/", json={"text": user_input})
+        
+        if response.status_code == 200:
+            result = response.json()
+            st.write(f"**Prediction:** {result['label']} (Confidence: {result['confidence']:.2f})")
+        else:
+            st.error("Error: Unable to get a response from the server.")
     else:
         st.warning("Please enter a review before checking.")
 
