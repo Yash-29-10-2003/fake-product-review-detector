@@ -59,6 +59,9 @@ During training:
 - The **Trainer API** was used for training and evaluation.  
 - The trained model and tokenizer were saved for use in the project.  
 
+Folowing were the recorded accuracies and loss after the training for the 3 epochs:
+
+<img width="860" alt="Screenshot 2025-02-19 at 4 19 45 PM" src="https://github.com/user-attachments/assets/e41a2b2c-c8c4-4ac0-952e-cf897e9e80db" />
 
 ---
 
