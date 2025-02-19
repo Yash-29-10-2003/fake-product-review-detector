@@ -1,6 +1,7 @@
 # Fake Product Review Detector  
 
-This project was developed as an assignment submission for Cyfuture.  
+This project was developed as an assignment submission for Cyfuture 2025 placement drive in Amity University, Noida.
+Submission by - Yash Singh (A2305221635)
 
 ---
 
