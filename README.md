@@ -90,6 +90,8 @@ To set up the project, follow these steps:
    uvicorn api:app --host 0.0.0.0 --port 8000 --reload
 
    ```
+   Now, your API is running at http://127.0.0.1:8000.
+   
    After inputing this command, you can check weather the API is up and running perfectly by using the following request in a fresh terminal:
    ```
    curl -X 'POST' 'http://127.0.0.1:8000/predict/' \
