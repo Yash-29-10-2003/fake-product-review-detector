@@ -1,47 +1,64 @@
-# fake-product-review-detector
-This project was made as an assignment submission for cyfutre.
+# Fake Product Review Detector  
+
+This project was developed as an assignment submission for Cyfuture.  
 
 ---
-### Problem Statement :
-###### Project14
-  a) Concept and Vision: Fake Product Review Detector.
-  b) Train a RoBERTa model to classify fake vs. genuine reviews.
-  c) Libraries: Hugging Face Transformers, LangChain, OpenAI API, TensorFlow/PyTorch, spaCy, NLTK
-  d) Frameworks: Streamlit/Gradio for UI, FastAPI for deployment.
-  e) Datasets: Kaggle, Hugging Face Hub, UCI ML Repository.
-  f) Evaluation Criteria
-    I. Functionality: Does the project work as intended?
-    II. Code Quality: Readability, modularity, and documentation.
-    III. GenAI Integration: Effective use of generative models (GPT, diffusion models, etc.).
-    IV. Creativity: Unique problem-solving or UI design.
-    V. Scalability: Could the solution handle real-world data? If yes how.
----
 
-### Proposed Solution :
+### Problem Statement  
 
-The code is divided into 3 main parts:
-- The Streamlit UI for user input and output generation. (main.py)
-- Pretraining of the fake review dector RoBERTa model. (fake_review_detector.ipynb)
-- Calling the pretrained model from colab into the local machine. (reviewChecker.py)
+###### Project 14  
 
+- **Concept and Vision:** Fake Product Review Detector.  
+- **Objective:** Train a RoBERTa model to classify fake vs. genuine reviews.  
+- **Libraries:** Hugging Face Transformers, LangChain, OpenAI API, TensorFlow/PyTorch, spaCy, NLTK.  
+- **Frameworks:** Streamlit/Gradio for UI, FastAPI for deployment.  
+- **Datasets:** Kaggle, Hugging Face Hub, UCI ML Repository.  
+- **Evaluation Criteria:**  
+  1. **Functionality:** Does the project work as intended?  
+  2. **Code Quality:** Readability, modularity, and documentation.  
+  3. **GenAI Integration:** Effective use of generative models (GPT, diffusion models, etc.).  
+  4. **Creativity:** Unique problem-solving or UI design.  
+  5. **Scalability:** Can the solution handle real-world data? If so, how?  
 
 ---
-#### Streamlit UI and Checking Reviews
 
-The streamlit UI is fairly simple with a breif description of the product, a text field and a button.
-<img width="1407" alt="Screenshot 2025-02-19 at 7 20 24 PM" src="https://github.com/user-attachments/assets/54f92190-6afe-465e-97a8-0f1dd6ac105f" />
+### Proposed Solution  
 
-The user input in the text field mentioned sends the query to the reviewChecker.py class and its functions give out an output based on if the review is computer generated or an authentic human review.
+The code is divided into three main parts:  
+- **Streamlit UI** for user input and output generation (**main.py**).  
+- **Pretraining the Fake Review Detector RoBERTa model** (**fake_review_detector.ipynb**).  
+- **Loading the pretrained model from Colab into the local machine** (**reviewChecker.py**).  
 
-#### Fine tuning the RoBERTa model for Fake Review Detection 
+---
 
-I used the fake review detection dataset from kaggle. [https://www.kaggle.com/datasets/mexwell/fake-reviews-dataset]
+### Streamlit UI and Review Checking  
 
-In the python notebook after installing the dependencies and importing required classes, I first did some dataset preprocessing where i dropped the missing values and extracted the necessary columns from the dataset. I also converted the label column to 0 and 1's for better accessibility and concatenated the category, rating and the review text into the text for better context.
+The Streamlit UI is simple, featuring a brief description of the product, a text field, and a button.  
 
-For tokenization I used the RobertaTokenizer to preprocess text data. Which converts the input text into tokenized format with padding and truncation. This tokenized data was further converted into Hugging Face dataset format for training.
+![Screenshot](https://github.com/user-attachments/assets/54f92190-6afe-465e-97a8-0f1dd6ac105f)  
 
-Then for training, after loading the pre trained roberta base model, and setting up basic training arguments I used the trainer API to train and evaluate the model and further saved the model and tokenizer for use in the project.
+When the user enters a review in the text field, the query is sent to the `reviewChecker.py` class, which processes it and determines whether the review is computer-generated or an authentic human review.  
+
+---
+
+### Fine-Tuning the RoBERTa Model for Fake Review Detection  
+
+The dataset used for fine-tuning was obtained from Kaggle: [Fake Reviews Dataset](https://www.kaggle.com/datasets/mexwell/fake-reviews-dataset).  
+
+In the Jupyter notebook, after installing dependencies and importing the required classes, the following preprocessing steps were performed:  
+- Dropped missing values.  
+- Extracted relevant columns.  
+- Converted the label column into binary format (0 and 1) for better accessibility.  
+- Concatenated the category, rating, and review text for better context.  
+
+For tokenization, **RobertaTokenizer** was used to preprocess text data, converting input text into a tokenized format with padding and truncation. This tokenized data was then converted into Hugging Face's dataset format for training.  
+
+During training:  
+- The **pretrained RoBERTa base model** was loaded.  
+- Basic training arguments were set.  
+- The **Trainer API** was used for training and evaluation.  
+- The trained model and tokenizer were saved for use in the project.  
+
 
 ---
 
