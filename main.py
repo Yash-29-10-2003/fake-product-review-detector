@@ -12,15 +12,13 @@
     #V. Scalability: Could the solution handle real-world data? If yes how
 
 
-# Dependencies to download for the project:
-# streamlit , nltk , 
-
+#Importing necessary classes
 import streamlit as st
 from reviewChecker import FakeReviewDetector 
 
 detector = FakeReviewDetector()
 
-
+#Main UI using streamlit
 st.title("Fake Product Review Detector")
 st.write("This application detects whether a product review is genuine or fake.")
 
@@ -32,7 +30,7 @@ if st.button("Check Review"):
     if user_input:
         label, confidence = detector.predict(user_input)
         st.write(f"Prediction: **{label}**")
-        #st.write(f"Confidence: **{confidence:.2f}**")
+        #st.write(f"Confidence: **{confidence:.2f}**")       #could be used to also display the confidence
     else:
         st.warning("Please enter a review before checking.")
 

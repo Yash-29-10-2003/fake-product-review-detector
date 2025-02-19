@@ -4,19 +4,18 @@ import nltk
 import streamlit as st
 
 class FakeReviewDetector:
-    def __init__(self, model_path="roberta_fake_review_model"):
-        """Initialize the Fake Review Detector with a pre-trained RoBERTa model."""
+    def __init__(self, model_path="roberta_fake_review_model"):                        #Adress of the pre trained model
         self.tokenizer = RobertaTokenizer.from_pretrained(model_path)
         self.model = RobertaForSequenceClassification.from_pretrained(model_path)
-        self.model.eval()  # Set model to evaluation mode
+        self.model.eval()  # Model to eval mode
     
+    #Preprocessing the user input text to match the model requirements
     def preprocess(self, text):
-        """Preprocess the input text (tokenization, truncation, padding)."""
         inputs = self.tokenizer(text, return_tensors="pt", truncation=True, padding=True, max_length=512)
         return inputs
 
+    #Prediction for the review
     def predict(self, text):
-        """Predict whether a review is fake or genuine."""
         inputs = self.preprocess(text)
         with torch.no_grad():
             outputs = self.model(**inputs)
@@ -29,6 +28,6 @@ class FakeReviewDetector:
         return label, confidence
 
 # Testing:
-detector = FakeReviewDetector()
-label, confidence = detector.predict("Compact and good build. Value for money, good connectivity and high transfer rate")
-print(f"Prediction: {label}, Confidence: {confidence:.2f}")
+#detector = FakeReviewDetector()
+#label, confidence = detector.predict("Compact and good build. Value for money, good connectivity and high transfer rate")
+#print(f"Prediction: {label}, Confidence: {confidence:.2f}")
