@@ -72,8 +72,11 @@ Following are the steps to follow to use the application in any local machine.
 To set up the project, follow these steps:
 
 1. Clone the repository to your local machine.
-2. Install the required dependencies using the provided requirements file.
-3. Download the dataset and place it in the root directory of the project.
+2. Install the required dependencies in the environment using the following command.
+   ```
+   pip install fastapi pydantic torch transformers streamlit requests
+   ```
+4. Download the dataset and place it in the root directory of the project.
 
 ---
 
