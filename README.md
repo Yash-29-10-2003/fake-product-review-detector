@@ -87,8 +87,11 @@ To set up the project, follow these steps:
 1. Navigate to the project directory in your terminal.
 2. Run the Fast API backend.
 3. Run the Streamlit application using the appropriate command.
-4. Open the provided URL in your web browser to interact with the app.
-5. Paste a product review into the text area and click "Check Review" to see the prediction.
+   ```
+   streamlit run main.py    
+   ```
+5. Open the provided URL in your web browser to interact with the app.
+6. Paste a product review into the text area and click "Check Review" to see the prediction.
 
 
 ---
