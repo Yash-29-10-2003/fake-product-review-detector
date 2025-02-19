@@ -1,3 +1,6 @@
+#THIS IS A MORE PRIMITIVE VERSION OF THE BACKEND LOGIC WITHOUT USING FAST API. MORE USEFUL FOR EASY TESTING.
+
+
 import torch
 from transformers import RobertaTokenizer, RobertaForSequenceClassification
 import nltk
