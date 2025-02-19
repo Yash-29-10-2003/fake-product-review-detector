@@ -38,7 +38,7 @@ The Streamlit UI is simple, featuring a brief description of the product, a text
 
 ![Screenshot](https://github.com/user-attachments/assets/54f92190-6afe-465e-97a8-0f1dd6ac105f)  
 
-When the user enters a review in the text field, the query is sent to the `reviewChecker.py` class, which processes it and determines whether the review is computer-generated or an authentic human review.  
+When the user enters a review in the text field, the query is sent to the `api.py` class, which sends a request to the Fast API instance running in the background and it returns the status of the review and the confidence.
 
 ---
 
@@ -85,8 +85,10 @@ To set up the project, follow these steps:
 ### Running the Streamlit App
 
 1. Navigate to the project directory in your terminal.
-2. Run the Streamlit application using the appropriate command.
-3. Open the provided URL in your web browser to interact with the app.
-4. Paste a product review into the text area and click "Check Review" to see the prediction.
+2. Run the Fast API backend.
+3. Run the Streamlit application using the appropriate command.
+4. Open the provided URL in your web browser to interact with the app.
+5. Paste a product review into the text area and click "Check Review" to see the prediction.
+
 
 ---
