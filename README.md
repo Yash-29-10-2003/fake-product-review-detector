@@ -30,3 +30,33 @@ The streamlit UI is fairly simple with a breif description of the product, a tex
 
 The user input in the text field mentioned sends the query to the reviewChecker.py class and its functions give out an output based on if the review is computer generated or an authentic human review.
 
+#### Fine tuning the RoBERTa model for Fake Review Detection 
+
+
+---
+
+## Installation
+
+To set up the project, follow these steps:
+
+1. Clone the repository to your local machine.
+2. Install the required dependencies using the provided requirements file.
+3. Download the dataset and place it in the root directory of the project.
+
+---
+
+## Usage
+
+### Training the Model
+
+1. Open the Jupyter Notebook provided in the project.
+2. Run the notebook to preprocess the data, train the RoBERTa model, and save the trained model to a specified directory.
+
+### Running the Streamlit App
+
+1. Navigate to the project directory in your terminal.
+2. Run the Streamlit application using the appropriate command.
+3. Open the provided URL in your web browser to interact with the app.
+4. Paste a product review into the text area and click "Check Review" to see the prediction.
+
+---
